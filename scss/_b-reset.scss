@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'AeonikPro';
+  src: url('../fonts/AeonikPro-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AeonikPro';
+  src: url('../fonts/AeonikPro-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AeonikPro';
+  src: url('../fonts/AeonikPro-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'AeonikPro', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  overflow-y: scroll;
+  color: #030303;
+  background-color: #ffffff;
+}
+
+a,
+button,
+input,
+textarea {
+  font-family: 'AeonikPro', sans-serif;
+  text-decoration: none;
+}
