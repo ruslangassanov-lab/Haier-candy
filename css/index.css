@@ -289,6 +289,11 @@ textarea {
   height: auto;
 }
 .candy__card-info-details-item-text {
+  max-width: 150px; /* ограничиваем ширину текста */
+    word-wrap: break-word; /* переносим длинные слова */
+    margin-left: 10px; /* отступ слева от иконки */
+    padding-right: 10px; /* отступ справа */
+    display: inline-block; /* чтобы работал max-width */
   font-weight: 500;
   font-size: 14px;
   color: #414047;
