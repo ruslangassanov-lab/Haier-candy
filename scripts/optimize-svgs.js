@@ -23,34 +23,47 @@ function walk(dir) {
 
 function optimizeFile(file) {
   const source = fs.readFileSync(file, 'utf8');
-  const result = optimize(source, {
-    path: file,
-    multipass: true,
-    floatPrecision: 2,
-    plugins: [
-      {
-        name: 'preset-default',
-        params: {
-          overrides: {
-            // keep viewBox
-            removeViewBox: false,
-            // configure cleanupIDs via preset overrides
-            cleanupIDs: { remove: true, minify: true },
-            // keep data-* attrs disabled by default; adjust below if needed
-            removeUnknownsAndDefaults: { keepDataAttrs: false }
+  let result;
+  try {
+    result = optimize(source, {
+      path: file,
+      multipass: true,
+      floatPrecision: 2,
+      plugins: [
+        {
+          name: 'preset-default',
+          params: {
+            overrides: {
+              // keep viewBox
+              removeViewBox: false,
+              // cleanup IDs (via preset override)
+              cleanupIDs: { remove: true, minify: true },
+              // keep data-* attrs disabled by default; adjust below if needed
+              removeUnknownsAndDefaults: { keepDataAttrs: false }
+            }
           }
         }
-      },
-      // remove specific attrs if present
-      { name: 'removeAttrs', params: { attrs: '(data-name|xmlns:xlink)' } }
-    ],
-  });
-
-  if (result.error) {
-    console.error('SVGO error:', file, result.error);
+        // intentionally avoid removeAttrs plugin due to regex incompatibilities
+      ],
+    });
+  } catch (e) {
+    console.error('SVGO error:', file, e.message);
     return false;
   }
-  const optimized = result.data;
+
+  if (!result || result.error) {
+    console.error('SVGO returned error:', file, result && result.error);
+    return false;
+  }
+
+  let optimized = result.data;
+
+  // Post-process to safely remove unwanted attributes (avoid plugin regex pitfalls)
+  // remove xmlns:xlink and plain xmlns if present
+  optimized = optimized.replace(/[\s\r\n]+xmlns(:xlink)?=(["'])[^\2]*?\2/gi, '');
+  // remove data-name attributes
+  optimized = optimized.replace(/[\s\r\n]+data-name=(["'])[^\1]*?\1/gi, '');
+
   if (optimized.length < source.length) {
     fs.copyFileSync(file, file + '.bak');
     fs.writeFileSync(file, optimized, 'utf8');
