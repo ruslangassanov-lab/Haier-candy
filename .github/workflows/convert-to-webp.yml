@@ -1,28 +1,36 @@
-name: Convert large SVG to WebP
+name: Convert images to WebP
 on:
-  push:
-    branches: [main, master]
-  workflow_dispatch:
+  workflow_dispatch:  # ТОЛЬКО ручной запуск
 
 jobs:
   convert:
     runs-on: ubuntu-latest
+    
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Install ImageMagick
-      run: sudo apt-get update && sudo apt-get install -y imagemagick
-    
-    - name: Find and convert large SVG
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Find large SVG files
       run: |
-        echo "🔍 Ищем большие SVG файлы (>500KB)..."
-        find . -name "*.svg" -size +500k | while read svg_file; do
-          webp_file="${svg_file%.svg}.webp"
-          echo "Конвертируем: $svg_file -> $webp_file"
-          convert "$svg_file" -quality 85 "$webp_file"
-        done
+        echo "🔍 Поиск больших SVG файлов (>500KB)..."
+        find . -name "*.svg" -size +500k -exec ls -lh {} \;
+        echo ""
+        echo "⚠️  Эти SVG слишком велики для веба."
+        echo "   Рекомендуется:"
+        echo "   1. Найти исходники (JPG/PNG)"
+        echo "   2. Конвертировать их в WebP"
+        echo "   3. Заменить в HTML"
         
-        echo "✅ Конвертация завершена"
+    - name: Find all images for conversion
+      run: |
+        echo "📊 Статистика изображений:"
+        echo "PNG: $(find . -name "*.png" | wc -l)"
+        echo "JPG: $(find . -name "*.jpg" -o -name "*.jpeg" | wc -l)"
+        echo "SVG: $(find . -name "*.svg" | wc -l)"
         
-    - name: List converted files
-      run: find . -name "*.webp" -exec ls -lh {} \;
+    - name: Install conversion tools
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y webp
