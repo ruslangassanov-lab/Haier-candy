@@ -1,0 +1,63 @@
+name: Optimize SVG
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:  # Позволяет запускать вручную из вкладки Actions
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Полная история для правильных коммитов
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install SVGO
+      run: npm install -g svgo
+
+    - name: Find and optimize all SVG files
+      run: |
+        echo "🔍 Ищем SVG файлы..."
+        find . -name "*.svg" -type f > svg_files.txt
+        echo "📊 Найдено файлов: $(wc -l < svg_files.txt)"
+        
+        echo "⚙️  Оптимизируем..."
+        while read -r file; do
+          echo "  📄 $file"
+          svgo "$file" --quiet --config='{
+            "plugins": [
+              "removeDoctype",
+              "removeXMLProcInst",
+              "removeComments",
+              "removeMetadata",
+              "removeEditorsNSData",
+              "cleanupAttrs",
+              "cleanupIDs",
+              "mergePaths",
+              "removeUselessStrokeAndFill",
+              "removeViewBox",
+              "removeDimensions"
+            ]
+          }'
+        done < svg_files.txt
+        
+        echo "✅ Оптимизация завершена"
+
+    - name: Commit changes if any
+      run: |
+        if [[ -n "$(git status --porcelain)" ]]; then
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add -A
+          git commit -m "🔧 auto: optimize SVG files with SVGO"
+          git push
+        else
+          echo "✅ Нет изменений для коммита"
+        fi
