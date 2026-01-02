@@ -2,17 +2,19 @@ name: Optimize SVG
 on:
   push:
     branches: [ main, master ]
-  workflow_dispatch:  # Позволяет запускать вручную из вкладки Actions
+  workflow_dispatch:
 
 jobs:
   optimize:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # КЛЮЧЕВАЯ СТРОКА - даёт права на запись
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # Полная история для правильных коммитов
+        fetch-depth: 0
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -26,38 +28,39 @@ jobs:
       run: |
         echo "🔍 Ищем SVG файлы..."
         find . -name "*.svg" -type f > svg_files.txt
-        echo "📊 Найдено файлов: $(wc -l < svg_files.txt)"
+        count=$(wc -l < svg_files.txt)
+        echo "📊 Найдено файлов: $count"
+        
+        if [ $count -eq 0 ]; then
+          echo "✅ SVG файлов не найдено, завершаем"
+          exit 0
+        fi
         
         echo "⚙️  Оптимизируем..."
+        optimized=0
         while read -r file; do
           echo "  📄 $file"
-          svgo "$file" --quiet --config='{
-            "plugins": [
-              "removeDoctype",
-              "removeXMLProcInst",
-              "removeComments",
-              "removeMetadata",
-              "removeEditorsNSData",
-              "cleanupAttrs",
-              "cleanupIDs",
-              "mergePaths",
-              "removeUselessStrokeAndFill",
-              "removeViewBox",
-              "removeDimensions"
-            ]
-          }'
+          if svgo "$file" --quiet; then
+            optimized=$((optimized + 1))
+          fi
         done < svg_files.txt
         
-        echo "✅ Оптимизация завершена"
+        echo "✅ Оптимизировано файлов: $optimized из $count"
 
-    - name: Commit changes if any
+    - name: Commit and push if changed
+      if: success()
       run: |
-        if [[ -n "$(git status --porcelain)" ]]; then
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add -A
-          git commit -m "🔧 auto: optimize SVG files with SVGO"
-          git push
-        else
+        # Проверяем, есть ли изменения
+        if [[ -z "$(git status --porcelain)" ]]; then
           echo "✅ Нет изменений для коммита"
+          exit 0
         fi
+        
+        echo "📦 Подготавливаем коммит..."
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add -A
+        git commit -m "🔧 optimize: auto SVG optimization"
+        
+        echo "🚀 Пушим изменения..."
+        git push
