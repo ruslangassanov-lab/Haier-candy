@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script type="module" src="./js/index.js" defer></script>
+  </head>
+
+  <body>
+    <main class="main">
+      <section class="candy">
+        <div class="candy__container">
+          <figure class="candy__logo">
+            <img class="candy__logo-image" src="./assets/candy-logo.svg" alt="logo" />
+          </figure>
+
+          <div class="candy__details">
+            <figure class="candy__details-figure">
+              <img
+                class="candy__details-figure-image"
+                src="./assets/candy-toasters-photo.jpg"
+                alt="photo"
+              />
+            </figure>
+            <div class="candy__details-info">
+              <div class="candy__details-info-title">Тостеры Candy</div>
+              <div class="candy__details-info-description">Хрустящие тосты каждый день</div>
+            </div>
+          </div>
+
+          <nav class="candy__menu">
+            <a class="candy__menu-link" href="#ct250">
+              <img
+                class="candy__menu-link-thumb"
+                src="./assets/thumbs/ct-250-thumb-photo.png"
+                alt="thumb"
+              />
+              <span class="candy__menu-link-text">CT-250</span>
+            </a>
+            <a class="candy__menu-link" href="#ct253">
+              <img
+                class="candy__menu-link-thumb"
+                src="./assets/thumbs/ct-253-thumb-photo.png"
+                alt="thumb"
+              />
+              <span class="candy__menu-link-text">CT-253</span>
+            </a>
+            <a class="candy__menu-link" href="#ct252">
+              <img
+                class="candy__menu-link-thumb"
+                src="./assets/thumbs/ct-252-thumb-photo.png"
+                alt="thumb"
+              />
+              <span class="candy__menu-link-text">CT-252</span>
+            </a>
+            <a class="candy__menu-link" href="#ct254">
+              <img
+                class="candy__menu-link-thumb"
+                src="./assets/thumbs/ct-254-thumb-photo.png"
+                alt="thumb"
+              />
+              <span class="candy__menu-link-text">CT-254</span>
+            </a>
+          </nav>
+
+          <div class="candy__cards">
+            <div class="candy__card" id="ct250">
+              <h2 class="candy__card-title">Тостер Candy CT-250</h2>
+
+              <div class="candy__card-info">
+                <figure class="candy__card-info-photo">
+                  <img
+                    class="candy__card-info-photo-image"
+                    src="./assets/photo/ct-250-photo.jpg"
+                    alt="photo"
+                  />
+                </figure>
+
+                <div class="candy__card-info-details">
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_power_v2.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">
+                      Мощность <br />
+                      930 Вт
+                    </div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_sticks_7.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">7 степеней поджаривания</div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_ferrum_v2.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">
+                      Корпус из нержавеющей стали
+                    </div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_defrost.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">Режим разморозки</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="candy__card-faq">
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">7 степеней поджаривания</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Сделайте свой выбор тоста: от немного подрумяненного до хорошо прожаренного
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Функция Reheat</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Позволяет дожарить ломтики до золотистой корочки, а также подогреть
+                    приготовленные заранее тосты
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Поддон для крошек</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Съемный поддон для крошек позволит сохранить чистоту во время приготовления
+                    тостов
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Подсветка панели управления</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Тостер оснащен красивой подсветкой кнопок, которая позволяет следить за выбором
+                    режима приготовления
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Корпус из нержавеющей стали</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Продуманный дизайн тостера с комбинацией пластика и нержавеющей стали станет
+                    украшением на вашей кухне
+                  </div>
+                </div>
+              </div>
+
+              <div class="candy__card-buy">
+                <a class="candy__card-buy-button" href="#">
+                  <span class="candy__card-buy-button-text">КУПИТЬ</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="candy__card" id="ct253">
+              <h2 class="candy__card-title">Тостер Candy CT-253</h2>
+
+              <div class="candy__card-info">
+                <figure class="candy__card-info-photo">
+                  <img
+                    class="candy__card-info-photo-image"
+                    src="./assets/photo/ct-253-photo.jpg"
+                    alt="photo"
+                  />
+                </figure>
+
+                <div class="candy__card-info-details">
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_power_v2.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">
+                      Мощность <br />
+                      650 Вт
+                    </div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_sticks_6.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">6 степеней поджаривания</div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_tray.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">
+                      Поддон <br />
+                      для крошек
+                    </div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_defrost.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">Режим разморозки</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="candy__card-faq">
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">6 степеней поджаривания</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Сделайте свой выбор тоста: от немного подрумяненного до хорошо прожаренного
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Функция Reheat</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Позволяет дожарить ломтики до золотистой корочки, а также подогреть
+                    приготовленные заранее тосты
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Поддон для крошек</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Съемный поддон для крошек позволит сохранить чистоту во время приготовления
+                    тостов
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Стильный дизайн</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Продуманный дизайн тостера с комбинацией пластика и нержавеющей стали станет
+                    украшением на вашей кухне
+                  </div>
+                </div>
+              </div>
+
+              <div class="candy__card-buy">
+                <a class="candy__card-buy-button" href="#">
+                  <span class="candy__card-buy-button-text">КУПИТЬ</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="candy__card" id="ct252">
+              <h2 class="candy__card-title">Тостер Candy CT-252</h2>
+
+              <div class="candy__card-info">
+                <figure class="candy__card-info-photo">
+                  <img
+                    class="candy__card-info-photo-image"
+                    src="./assets/photo/ct-252-photo.jpg"
+                    alt="photo"
+                  />
+                </figure>
+
+                <div class="candy__card-info-details">
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_power_v2.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">
+                      Мощность <br />
+                      930 Вт
+                    </div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_sticks_7.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">7 степеней поджаривания</div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_tray.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">
+                      Поддон <br />
+                      для крошек
+                    </div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_defrost.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">Режим разморозки</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="candy__card-faq">
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">7 степеней поджаривания</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Сделайте свой выбор тоста: от немного подрумяненного до хорошо прожаренного
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">LCD дисплей</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Тостер оснащен электронным управлением с LCD дисплеем
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Функция Reheat</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Позволяет дожарить ломтики до золотистой корочки, а также подогреть
+                    приготовленные заранее тосты
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Поддон для крошек</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Съемный поддон для крошек позволит сохранить чистоту во время приготовления
+                    тостов
+                  </div>
+                </div>
+              </div>
+
+              <div class="candy__card-buy">
+                <a class="candy__card-buy-button" href="#">
+                  <span class="candy__card-buy-button-text">КУПИТЬ</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="candy__card" id="ct254">
+              <h2 class="candy__card-title">Тостер Candy CT-254</h2>
+
+              <div class="candy__card-info">
+                <figure class="candy__card-info-photo">
+                  <img
+                    class="candy__card-info-photo-image"
+                    src="./assets/photo/ct-254-photo.jpg"
+                    alt="photo"
+                  />
+                </figure>
+
+                <div class="candy__card-info-details">
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_power_v2.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">
+                      Мощность <br />
+                      950 Вт
+                    </div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_sticks_7.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">7 степеней поджаривания</div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_defrost.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">Режим разморозки</div>
+                  </div>
+
+                  <div class="candy__card-info-details-item">
+                    <figure class="candy__card-info-details-item-icon">
+                      <img
+                        class="candy__card-info-details-item-icon-image"
+                        src="./assets/icons/icon_ferrum_v2.svg"
+                        alt="icon"
+                      />
+                    </figure>
+                    <div class="candy__card-info-details-item-text">
+                      Корпус из нержавеющей стали
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="candy__card-faq">
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">7 степеней поджаривания</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Сделайте свой выбор тоста: от немного подрумяненного до хорошо прожаренного
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Функция Reheat</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Позволяет дожарить ломтики до золотистой корочки, а также подогреть
+                    приготовленные заранее тосты
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Поддон для крошек</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Съемный поддон для крошек позволит сохранить чистоту во время приготовления
+                    тостов
+                  </div>
+                </div>
+
+                <div class="candy__card-faq-card">
+                  <div class="candy__card-faq-card-toggler">
+                    <div class="candy__card-faq-card-toggler-text">Корпус из нержавеющей стали</div>
+                    <button class="candy__card-faq-card-toggler-button"></button>
+                  </div>
+                  <div class="candy__card-faq-card-panel">
+                    Продуманный дизайн тостера с комбинацией пластика и нержавеющей стали станет
+                    украшением на вашей кухне
+                  </div>
+                </div>
+              </div>
+
+              <div class="candy__card-buy">
+                <a class="candy__card-buy-button" href="#">
+                  <span class="candy__card-buy-button-text">КУПИТЬ</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
