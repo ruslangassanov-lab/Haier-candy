@@ -28,10 +28,20 @@ function optimizeFile(file) {
     multipass: true,
     floatPrecision: 2,
     plugins: [
-      'preset-default',
-      { name: 'removeUnknownsAndDefaults', params: { keepDataAttrs: false } },
-      { name: 'removeViewBox', active: false }, // keep viewBox
-      { name: 'cleanupIDs', params: { remove: true, minify: true } },
+      {
+        name: 'preset-default',
+        params: {
+          overrides: {
+            // keep viewBox
+            removeViewBox: false,
+            // configure cleanupIDs via preset overrides
+            cleanupIDs: { remove: true, minify: true },
+            // keep data-* attrs disabled by default; adjust below if needed
+            removeUnknownsAndDefaults: { keepDataAttrs: false }
+          }
+        }
+      },
+      // remove specific attrs if present
       { name: 'removeAttrs', params: { attrs: '(data-name|xmlns:xlink)' } }
     ],
   });
